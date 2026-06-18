@@ -6,7 +6,7 @@ const URL:string = process.env.URL ?? "";
 
 const app = express();
 
-app.use("cors");
+app.use(cors());
 
 
 app.get("/memes", async (req: express.Request, res:express.Response)=>{
