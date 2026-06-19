@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Editor from './pages/Editor'
 import { useEffect } from 'react'
 import { useMemesState } from './store/memeStates'
+import Header from './components/Header'
 
 // interface Meme {
 //   id : number ,
@@ -16,7 +17,7 @@ import { useMemesState } from './store/memeStates'
 
 function App() {
 
-  const setMemes = useMemesState((state:any )=> state.setMemes)
+  const setMemes = useMemesState((state )=> state.setMemes)
 
   useEffect(()=>{
 
@@ -34,12 +35,16 @@ function App() {
   },)
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/editor" element={<Editor/>}/>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/editor" element={<Editor />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 

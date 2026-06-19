@@ -1,6 +1,24 @@
 import {create} from 'zustand'
 
-export const useMemesState = create((set)=> ({
+export interface Meme {
+    id: number;
+    name: string;
+    slug: string;
+    url: string;
+    category: string[];
+}
+
+interface MemeStore {
+    memes: Meme[];
+    selectedMeme : Meme | null;
+    setMemes: (memes: Meme[]) => void;
+    setSelectedMeme : (meme: Meme)=> void;
+}
+
+export const useMemesState = create<MemeStore>((set)=> ({
     memes : [],
-    setMemes : (memes : []) => set(()=> ({memes : memes}))
+    selectedMeme : null,
+    setMemes : (memes : Meme[]) => set({memes : memes}),
+    setSelectedMeme : (meme : Meme)=> set({selectedMeme : meme})
 }))
+
