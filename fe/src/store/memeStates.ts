@@ -1,12 +1,37 @@
 import {create} from 'zustand'
 
-export interface Meme {
-    id: number;
-    name: string;
-    slug: string;
-    url: string;
-    category: string[];
+// export interface Meme {
+//     id: number;
+//     name: string;
+//     slug: string;
+//     url: string;
+//     category: string[];
+// }
+
+interface Text {
+    text: string;
+    x: number;
+    y: number;
 }
+
+interface Meme {
+    id: number,
+    name: string,
+    slug: string,
+    url: string,
+    category: string[],
+    texts: Text[]
+}
+/**
+ * add few more categories :)
+ * 
+ * numberOfTexts : number
+ * Text : {
+ *    text : string,
+ *    x : number,
+ *    y : number
+ * }
+ */
 
 interface MemeStore {
     memes: Meme[];

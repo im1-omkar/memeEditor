@@ -46,6 +46,8 @@ const Editor = () => {
       const MAX_WIDTH = 600;
       const MAX_HEIGHT = 400;
 
+      imageRef.current = meme;
+
       const scale = Math.min(
         MAX_WIDTH / meme.width,
         MAX_HEIGHT / meme.height,
@@ -76,7 +78,7 @@ const Editor = () => {
       })
     };
 
-  },[])
+  },)
 
   useEffect(()=>{
     const canvas = canvasRef.current;
@@ -87,8 +89,8 @@ const Editor = () => {
     const ctx = canvas.getContext("2d");
     if(!ctx) return;
 
-    const meme = new Image()
-    meme.src = selectedMeme?.url;
+    const meme = imageRef.current;
+    if(!meme) return;
 
 
     const scale = Math.min(

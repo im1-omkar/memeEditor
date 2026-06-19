@@ -1,12 +1,19 @@
 import { useNavigate } from "react-router-dom"
 import { useMemesState } from "../store/memeStates"
 
+interface Text {
+  text: string;
+  x: number;
+  y: number;
+}
+
 interface Meme {
   id: number,
   name: string,
   slug: string,
   url: string,
-  category: string[]
+  category: string[],
+  text : Text[]
 }
 
 const Home = () => {

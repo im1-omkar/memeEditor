@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
-import Editor from './pages/Editor'
+import Editor from './components/Editor1'
 import { useEffect } from 'react'
 import { useMemesState } from './store/memeStates'
 import Header from './components/Header'
